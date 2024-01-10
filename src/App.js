@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Banner from './componentes/Banner/banner';
+import Banner from './componentes/Banner/Banner';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
-        >
+        > 
           Learn React
         </a>
       </header>
