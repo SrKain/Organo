@@ -4,16 +4,7 @@ import CampoTexto from "../CampoTexto/CampoTexto";
 import ListaSuspensa from "../ListaSuspensa/Lista";
 import "./Forms.css";
 
-const Formulario = () => {
-  const times = [
-    "Programação",
-    "Front-end",
-    "Data-science",
-    "Devops",
-    "UX e design",
-    "Mobile",
-    "Inovação e gestão" 
-  ]
+const Formulario = (props) => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
@@ -22,7 +13,14 @@ const Formulario = () => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    console.log("deu boa =>", nome, cargo, imagem, time)
+    // console.log("deu boa =>", nome, cargo, imagem, time)
+
+    props.addColab({
+      nome,
+      cargo,
+      imagem,
+      time
+    })
   }
 
   return (
@@ -55,7 +53,7 @@ const Formulario = () => {
 
         <ListaSuspensa 
         label="Time" 
-        itens={times}
+        itens={props.options}
         valor={time}
         setValor={valor => setTime(valor)}
         />
