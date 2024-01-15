@@ -20,7 +20,7 @@ const Footer = () => {
     ]
 
     return(
-        <section className='rodape'>
+        <section className='rodape' style={{backgroundImage: 'url("./imagens/fundo.png")'}}>
             <div>
                 {redes.map(item => <a key={item.rede} href={item.link}><img  src={item.imagem} alt={item.rede}></img></a>)}
             </div>
