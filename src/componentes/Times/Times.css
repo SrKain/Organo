@@ -1,0 +1,23 @@
+.time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 32px;
+}
+
+.time h3 {
+    font-family: Prata;
+    font-size: 32px;
+    font-weight: 400;
+    border-bottom: 4px solid;
+    padding-bottom: 8px;
+}
+
+.time .colabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
