@@ -10,6 +10,7 @@ const ListaSuspensa = (Props) => {
         <div className="lista-suspensa">
             <label>{Props.label}</label>
             <select value={Props.valor} onChange={alterado} >
+                <option value=""></option>
                 {Props.itens.map(item => {
                 return <option key={item}>{item}</option>
                 })}

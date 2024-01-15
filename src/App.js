@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Banner from './componentes/Banner/banner';
 import Formulario from './componentes/forms/Forms';
 import Times from './componentes/Times/Times';
+import Footer from './componentes/Footer/Footer';
+import Separador from './componentes/Separador/Separador';
 
 
 function App() {
@@ -55,8 +57,21 @@ function App() {
   return (
     <div className="App">
       <Banner/>
+
       <Formulario options={times.map((time => time.nome))} addColab={colab => newColab(colab)}/>
-      {times.map(time => <Times key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/>)}
+
+      <Separador>Minha Organização:</Separador>
+
+      {times.map(time => <Times 
+        key={time.nome} 
+        nome={time.nome} 
+        corPrimaria={time.corPrimaria} 
+        corSecundaria={time.corSecundaria}
+        colabs={colabs.filter((colab => colab.time === time.nome))}
+        />)}
+
+        <Footer/>
+
     </div>
   );
 }

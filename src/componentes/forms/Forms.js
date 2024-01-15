@@ -13,14 +13,16 @@ const Formulario = (props) => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    // console.log("deu boa =>", nome, cargo, imagem, time)
-
     props.addColab({
       nome,
       cargo,
       imagem,
       time
     })
+    setNome('');
+    setCargo('');
+    setImagem('');
+    setTime('');
   }
 
   return (

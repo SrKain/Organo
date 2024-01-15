@@ -1,0 +1,21 @@
+.rodape {
+    background-color: #6278F7;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    background-image: url("c:\logica\react2\organos\public\imagens\fundo.png");
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+.rodape a {
+    margin: 4px;
+}
+
+.rodape h1 {
+    font-size: 20px;
+    color: #FFFFFF;
+    font-family: Montserrat;
+    font-weight: 400;
+}
