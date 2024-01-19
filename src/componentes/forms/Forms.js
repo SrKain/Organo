@@ -3,12 +3,14 @@ import Button from "../Button/Button";
 import CampoTexto from "../CampoTexto/CampoTexto";
 import ListaSuspensa from "../ListaSuspensa/Lista";
 import "./Forms.css";
+import { v4 as uuidv4 } from 'uuid';
 
 const Formulario = (props) => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
+  const id = uuidv4();
 
 
   const aoSalvar = (evento) => {
@@ -17,7 +19,8 @@ const Formulario = (props) => {
       nome,
       cargo,
       imagem,
-      time
+      time,
+      id,
     })
     setNome('');
     setCargo('');
