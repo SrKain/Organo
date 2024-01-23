@@ -60,6 +60,11 @@ function App() {
     setColab([...colabs, colab])
   }
 
+  const newTeam =(team) => {
+    console.log(team);
+    setTimes([...times, team])
+  }
+
   function deleteColab (id) {
     setColab(colabs.filter(colab => colab.id !== id))
   }
@@ -76,8 +81,11 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-
-      <Formulario options={times.map((time => time.nome))} addColab={colab => newColab(colab)}/>
+      <Formulario 
+        options={times.map((time => time.nome))} 
+        addColab={colab => newColab(colab)}
+        addTeam={team => newTeam(team)}
+      />
 
       <Separador>Minha Organização:</Separador>
 

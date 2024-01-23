@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../Button/Button";
-import CampoTexto from "../CampoTexto/CampoTexto";
+import Campo from "../Campo/Campo";
 import ListaSuspensa from "../ListaSuspensa/Lista";
 import "./Forms.css";
 import { v4 as uuidv4 } from 'uuid';
@@ -10,6 +10,8 @@ const Formulario = (props) => {
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
+  const [nomeTime, setNomeTime] = useState('');
+  const [corTime, setCorTime] = useState('#FFFFFF');
   const id = uuidv4();
 
 
@@ -33,7 +35,7 @@ const Formulario = (props) => {
       <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o seu card de colaborador</h2>
 
-        <CampoTexto 
+        <Campo 
         obrigatório={true} 
         label="Nome" 
         placeholder="Digite seu nome" 
@@ -41,7 +43,7 @@ const Formulario = (props) => {
         setValor={valor => setNome(valor)}
         />
 
-        <CampoTexto 
+        <Campo 
         obrigatório={true} 
         label="Cargo" 
         placeholder="Digite seu cargo"
@@ -49,7 +51,7 @@ const Formulario = (props) => {
         setValor={valor => setCargo(valor)}
         />
 
-        <CampoTexto 
+        <Campo 
         label="Imagem" 
         placeholder="Informe o endereço da sua imagem"
         valor={imagem}
@@ -65,6 +67,38 @@ const Formulario = (props) => {
 
         <Button>
           Criar Card
+        </Button>
+      </form>
+      <form onSubmit={(evento) => {
+        evento.preventDefault();
+        props.addTeam({
+          nome: nomeTime,
+          cor: corTime,
+          id: uuidv4(),
+        })
+        setNomeTime('');
+        setCorTime('#ffffff');
+      }}>
+        <h2>Preencha os dados para criar o seu novo time</h2>
+
+        <Campo 
+        obrigatório={true} 
+        label="Nome" 
+        placeholder="Digite o nome do seu time" 
+        valor={nomeTime}
+        setValor={valor => setNomeTime(valor)}
+        />
+
+        <Campo 
+        obrigatório={true} 
+        label="Cor" 
+        type='color'
+        placeholder="Escolha a cor do seu time"
+        valor={corTime}
+        setValor={valor => setCorTime(valor)}
+        />
+        <Button>
+          Criar um novo time
         </Button>
       </form>
     </section>
