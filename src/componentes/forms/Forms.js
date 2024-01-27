@@ -10,6 +10,7 @@ const Formulario = (props) => {
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
+  const [favorito , setFavorito] = useState(false);
   const [nomeTime, setNomeTime] = useState('');
   const [corTime, setCorTime] = useState('#FFFFFF');
   const id = uuidv4();
@@ -23,11 +24,13 @@ const Formulario = (props) => {
       imagem,
       time,
       id,
+      favorito,
     })
     setNome('');
     setCargo('');
     setImagem('');
     setTime('');
+    setFavorito(false);
   }
 
   return (

@@ -22,6 +22,8 @@ const Times = (props) => {
                         imagem={colab.imagem} 
                         time={colab.time}
                         cor={props.cor}
+                        favoritar={props.favoritar}
+                        favorito={colab.favorito}
                         aoDeletar={props.aoDeletar}
                 />)})}
             </div>

@@ -49,10 +49,12 @@ function App() {
   ])
 
   const [colabs, setColab] = useState([{
-    nome:'kauan',
-    cargo:'developer',
+    nome:'Kauan Iasin',
+    cargo:'Front-end Developer, especialista em HTML, CSS e js, com foco em React.js e TailwindCSS',
     imagem: 'https://github.com/srkain.png',
     time: times[0].nome,
+    favorito: true,
+    id: uuidv4(),
   }])
 
   const newColab = (colab) => {
@@ -77,6 +79,19 @@ function App() {
         return time;
       }))
   }
+
+  function favColab (id) {
+    console.log(id);
+    setColab(colabs.map(colaborador => {
+      if(colaborador.id === id) {
+        colaborador.favorito = !colaborador.favorito;
+        console.log(colaborador.favorito)
+      }
+      return colaborador;
+    }
+    )
+    )
+  } 
   
   return (
     <div className="App">
@@ -97,6 +112,7 @@ function App() {
         cor={time.cor}
         colabs={colabs.filter((colab => colab.time === time.nome))}
         aoDeletar={id => {deleteColab(id)}}
+        favoritar={id => {favColab(id)}}
         />)
       }
 
