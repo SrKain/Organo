@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import Banner from './componentes/Banner/banner';
+import Banner from './componentes/Banner';
 import Formulario from './componentes/forms/Forms';
 import Times from './componentes/Times/Times';
 import Footer from './componentes/Footer/Footer';
@@ -95,7 +95,7 @@ function App() {
   
   return (
     <div className="App">
-      <Banner/>
+      <Banner />
       <Formulario 
         options={times.map((time => time.nome))} 
         addColab={colab => newColab(colab)}
