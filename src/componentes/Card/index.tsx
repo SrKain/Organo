@@ -1,5 +1,4 @@
 import './Card.css'
-import React from 'react'
 import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 
 

@@ -2,7 +2,6 @@ import { useState } from "react";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/forms/index";
 import Times from "./componentes/Times";
-import React from "react";
 import Footer from "./componentes/Footer";
 import Separador from "./componentes/Separador";
 import { IColab } from "./shared/interfaces/IColab";

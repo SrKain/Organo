@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './Footer.css'
 
 const Footer = () => {
@@ -26,7 +26,7 @@ const Footer = () => {
                 {redes.map(item => <a key={item.rede} href={item.link}><img  src={item.imagem} alt={item.rede}></img></a>)}
             </div>
             <div className='logo'>
-                <a href='#'><img src='/imagens/logo.png' alt='logo da Organo'></img></a>
+                <a href='#'><img src='/imagens/logo.png' alt='logo da Organo'/></a>
             </div>
             <div>
                 <h1>Desenvolvido por Kauan Iasin.</h1>

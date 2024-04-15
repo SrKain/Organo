@@ -1,5 +1,4 @@
 import './Times.css'
-import React from 'react';
 import Card from '../Card/index'
 import hexToRgba from 'hex-to-rgba';
 import { IColab } from '../../shared/interfaces/IColab';
