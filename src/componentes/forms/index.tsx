@@ -1,11 +1,18 @@
-import { useState } from "react";
-import Campo from "../Campo/Campo";
+import React, { useState } from "react";
+import Campo from "../Campo";
 import Button from "../Button/index";
-import ListaSuspensa from "../ListaSuspensa/Lista";
+import ListaSuspensa from "../ListaSuspensa";
 import "./Forms.css";
-import { v4 as uuidv4 } from "uuid";
+import { IColab } from "../../shared/interfaces/IColab";
+import { ITeam } from "../../shared/interfaces/ITeams";
 
-const Formulario = (props) => {
+interface FormularioProps {
+  addColab: (colab: IColab) => void
+  addTeam: (Team: ITeam) => void
+  options: string[]
+}
+
+const Formulario = ({addColab, addTeam, options,}: FormularioProps) => {
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
@@ -13,16 +20,14 @@ const Formulario = (props) => {
   const [favorito, setFavorito] = useState(false);
   const [nomeTime, setNomeTime] = useState("");
   const [corTime, setCorTime] = useState("#FFFFFF");
-  const id = uuidv4();
 
-  const aoSalvar = (evento) => {
+  const aoSalvar = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
-    props.addColab({
+    addColab({
       nome,
       cargo,
       imagem,
       time,
-      id,
       favorito,
     });
     setNome("");
@@ -62,20 +67,21 @@ const Formulario = (props) => {
 
         <ListaSuspensa
           label="Time"
-          itens={props.options}
+          itens={options}
           valor={time}
-          setValor={(valor) => setTime(valor)}
+          setValor={(valor : string) => setTime(valor)}
         />
 
         <Button>Criar Card</Button>
+
       </form>
       <form
         onSubmit={(evento) => {
           evento.preventDefault();
-          props.addTeam({
+          addTeam({
             nome: nomeTime,
             cor: corTime,
-            id: uuidv4(),
+            id: nomeTime
           });
           setNomeTime("");
           setCorTime("#ffffff");

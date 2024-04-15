@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import React from 'react';
 import './Button.css'
 interface ButtonProps {
-    children: ReactElement
+    children: ReactElement | string
 }
 export default function Button(props: ButtonProps) {
     return (

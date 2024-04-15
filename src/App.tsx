@@ -1,51 +1,53 @@
 import { useState } from "react";
 import Banner from "./componentes/Banner";
-import Formulario from "./componentes/forms/Forms";
-import Times from "./componentes/Times/Times";
-import Footer from "./componentes/Footer/Footer";
-import Separador from "./componentes/Separador/Separador";
-import { v4 as uuidv4 } from "uuid";
+import Formulario from "./componentes/forms/index";
+import Times from "./componentes/Times";
+import React from "react";
+import Footer from "./componentes/Footer";
+import Separador from "./componentes/Separador";
+import { IColab } from "./shared/interfaces/IColab";
+import { ITeam } from "./shared/interfaces/ITeams";
 
 function App() {
-  const [times, setTimes] = useState([
+  const [times, setTimes] = useState<ITeam[]>([
     {
       nome: "Programação",
       cor: "#57C278",
-      id: uuidv4(),
+      id: '1'
     },
     {
       nome: "Front-End",
       cor: "#82CFFA",
-      id: uuidv4(),
+      id: '2'
     },
     {
       nome: "Data Science",
       cor: "#A6D157",
-      id: uuidv4(),
+      id: '3'
     },
     {
       nome: "Devops",
       cor: "#E06B69",
-      id: uuidv4(),
+      id: '4'
     },
     {
       nome: "UX e Design",
       cor: "#DB6EBF",
-      id: uuidv4(),
+      id: '5'
     },
     {
       nome: "Mobile",
       cor: "#FFBA05",
-      id: uuidv4(),
+      id: '6'
     },
     {
       nome: "Inovação e Gestão",
       cor: "#FF8A29",
-      id: uuidv4(),
+      id: '7'
     },
   ]);
 
-  const [colabs, setColab] = useState([
+  const [colabs, setColab] = useState<IColab[]>([
     {
       nome: "Kauan Iasin",
       cargo:
@@ -53,25 +55,23 @@ function App() {
       imagem: "https://github.com/srkain.png",
       time: times[0].nome,
       favorito: true,
-      id: uuidv4(),
+      id: 'kauan'
     },
   ]);
 
-  const newColab = (colab) => {
-    console.log(colabs);
+  const newColab = (colab: IColab) => {
     setColab([...colabs, colab]);
   };
 
-  const newTeam = (team) => {
-    console.log(team);
+  const newTeam = (team: ITeam) => {
     setTimes([...times, team]);
   };
 
-  function deleteColab(id) {
+  function deleteColab(id: string) {
     setColab(colabs.filter((colab) => colab.id !== id));
   }
 
-  function mudaCorDoTime(cor, id) {
+  function mudaCorDoTime(cor: string, id: string) {
     setTimes(
       times.map((time) => {
         if (time.id === id) {
@@ -82,7 +82,7 @@ function App() {
     );
   }
 
-  function favColab(id) {
+  function favColab(id: string) {
     console.log(id);
     setColab(
       colabs.map((colaborador) => {
@@ -117,10 +117,10 @@ function App() {
           nome={time.nome}
           cor={time.cor}
           colabs={colabs.filter((colab) => colab.time === time.nome)}
-          aoDeletar={(id) => {
+          aoDeletar={(id: string) => {
             deleteColab(id);
           }}
-          favoritar={(id) => {
+          favoritar={(id: string) => {
             favColab(id);
           }}
         />
