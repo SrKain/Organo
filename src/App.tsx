@@ -72,7 +72,7 @@ function App() {
 
   function mudaCorDoTime(cor: string, id: string) {
     setTimes(
-      times.map((time) => {
+      times.map((time: ITeam) => {
         if (time.id === id) {
           time.cor = cor;
         }
@@ -95,27 +95,27 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <main className="App">
       <Banner
         enderecoImagem=" /imagens/banner.png"
         textoAlternativo="Banner da pagina Organo."
       />
       <Formulario
-        options={times.map((time) => time.nome)}
-        addColab={(colab) => newColab(colab)}
-        addTeam={(team) => newTeam(team)}
+        options={times.map((time: ITeam) => time.nome)}
+        addColab={(colab: IColab) => newColab(colab)}
+        addTeam={(team: ITeam) => newTeam(team)}
       />
 
       <Separador>Minha Organização:</Separador>
 
-      {times.map((time) => (
+      {times.map((time : ITeam) => (
         <Times
           mudaCor={mudaCorDoTime}
           key={time.nome}
           id={time.id}
           nome={time.nome}
           cor={time.cor}
-          colabs={colabs.filter((colab) => colab.time === time.nome)}
+          colabs={colabs.filter((colab: IColab) => colab.time === time.nome)}
           aoDeletar={(id: string) => {
             deleteColab(id);
           }}
@@ -126,7 +126,7 @@ function App() {
       ))}
 
       <Footer />
-    </div>
+    </main>
   );
 }
 

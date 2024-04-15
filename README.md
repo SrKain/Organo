@@ -6,3 +6,6 @@
 
  automaticamente a imagem ira preencher o lugar certo.
     Nessa aplicação aprendi a usar React.js, ousando hooks como useState e setState. criei organicamente cada componente, tornando eles adaptados para a aplicação em questão. 
+# Organo em Typescript
+
+ Primerio projeto

@@ -16,7 +16,7 @@ interface TimesProps {
 export default function Times(props: TimesProps) {
     return (
 
-        props.colabs.length > 0 && <section className='time' style={{ backgroundColor: hexToRgba(props.cor, 0.2) }}>
+        props.colabs.length > 0 ? <section className='time' style={{ backgroundColor: hexToRgba(props.cor, 0.2) }}>
 
             <input value={props.cor} onChange={evento => { props.mudaCor(evento.target.value, props.id) }} type='color' className='input-cor' />
             <h3 style={{ borderColor: props.cor }}>{props.nome}</h3>
@@ -38,6 +38,6 @@ export default function Times(props: TimesProps) {
                         />)
                 })}
             </div>
-        </section>
+        </section> : <></>
     )
 }
